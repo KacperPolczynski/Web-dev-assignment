@@ -18,7 +18,10 @@ db = SQLAlchemy(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-
+#End of models definition
+#Code snippets from:https://www.geeksforgeeks.org/how-to-add-authentication-to-your-app-with-flask-login/
+#accessed on 22nd decemeber
+#Used base login and register feature to add authentication to the app to allow other features
 @login_manager.user_loader
 def loader_user(user_id):
     return Users.query.get(user_id)
@@ -52,8 +55,7 @@ class Comments(db.Model):
     
 with app.app_context():
     db.create_all()
-#End of models definition
-#https://www.geeksforgeeks.org/how-to-add-authentication-to-your-app-with-flask-login/
+
 
 UPLOAD_FOLDER = os.path.join(basedir, 'static/uploads')
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -105,6 +107,9 @@ def projects():
     return render_template('projects.html' , projects=projects,comments=comments_dict)
 
 #Section for uploading photo
+#Code adapted from: https://openjavascript.info/2022/06/08/how-to-upload-a-file-using-the-fetch-api/ 
+# Accessed on 12/12/2024
+# This code allowed me to upload a photo file to the server which has been adapted to link to other projects
 @app.route('/upload', methods=['POST']) #Photo upload
 def upload_photo():
     if request.method =='POST':
@@ -188,7 +193,10 @@ def register():
         flash('User registered successfully!', 'success')
         return redirect(url_for('login'))
     return render_template('register.html')
-    
+#End of models definition
+#Code snippets from:https://www.geeksforgeeks.org/how-to-add-authentication-to-your-app-with-flask-login/
+#accessed on 22nd decemeber
+#Used base login and register feature to add authentication to the app to allow other features 
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "POST":

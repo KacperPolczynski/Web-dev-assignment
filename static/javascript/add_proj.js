@@ -1,4 +1,6 @@
-
+/*code adapted from: https://www.w3schools.com/howto/howto_css_modals.asp*/
+/*Accessed on 12/12/2024*/
+/*modal pop up allowed me to implement a form to add a project*/
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("add-proj-btn");
     var span = document.getElementsByClassName("close")[0];
@@ -37,7 +39,9 @@ form.addEventListener('submit', async (e) => {
     const payload = new FormData();
     payload.append("photo_url", file);
 
-    /*https://openjavascript.info/2022/06/08/how-to-upload-a-file-using-the-fetch-api/*/
+    /* Code adapted from: https://openjavascript.info/2022/06/08/how-to-upload-a-file-using-the-fetch-api/ */
+    /*Accessed on 12/12/2024*/
+    /*This code allowed me to upload a file to the server*/
     try {
         const photoupload = await fetch('/upload', {
             method : 'POST', 
