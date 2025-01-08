@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+}
+/* Header styling */
+.navbar {
+    background-color: #f1f1f1;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* Add this line */
+    align-items: center;
+    padding:1em 1em;
+    margin: 0;
+    position: sticky;
+}
+.navbar_items{
+    display: flex;
+    width: 100%;
+    list-style:none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    color: #333;
+    text-decoration: none;
+}
+
+.navbar .home {
+    margin-right: auto;
+}
+.navbar_items li {
+    margin-left: 4em;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+}
+
+.navbar a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+/* Footer styling */
+.footer {
+    background-color: #f1f1f1; /* Dark background color */
+    color: black; /* White text color */
+    text-align: center; /* Center align text */
+    padding: 0.1em; /* Padding around the footer */
+    position: static; /* Position the footer */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Ensure padding doesn't affect layout */
+  }
+  
+  .footer-content {
+    max-width: 100%; /* Maximum width for content */
+    margin: 0 auto; /* Center content */
+  }
+  
+  .contact-list {
+    list-style: none; /* Remove default list style */
+    padding: 0;
+    margin: 0.5em 0; /* Space between items */
+    font-size: 0.7em;
+  }
+  
+  .contact-list li {
+    margin-bottom: 0.5em; /* Space between list items */
+  }
+  
+  .footer p {
+    font-weight: bold;
+    margin-bottom: 0.5em; /* Space between title and contact list */
+  }
+
+
+
+
+  

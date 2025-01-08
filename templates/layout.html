@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../static/CSS_styles/layout.css">
+        {% block extra_CSS %}
+        {% endblock %}
+        <script src="https://kit.fontawesome.com/f79cc66706.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <ul class="navbar_items">
+                <li class="home"><a href="{{url_for('frontpage') }}" class="home"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="?">About</a></li>
+                <li><a href="{{url_for('projects') }}">Projects</a></li>
+                <li><a href="{{url_for('login') }}">login</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+              <p>Contact Me</p>
+              <ul class="contact-list">
+                <li>Phone: 07852467065</li>
+                <li>Email: Polczynskikf@cardiff.ac.uk</li>
+              </ul>
+            </div>
+        </footer>
+          
+    </body>
+</html>

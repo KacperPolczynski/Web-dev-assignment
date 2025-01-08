@@ -1,0 +1,51 @@
+{% extends "layout.html"%}
+{% block extra_CSS %}
+<link rel="stylesheet" type="text/css" href="../static/CSS_styles/projects.css">
+{% endblock %}
+{% block content %}
+<div class="main-body">
+    <div class="add-btn">
+        <button id="add-proj-btn">Add project</button>
+    </div>
+    <!-- Pop Up to Add Projects-->
+    <div id ="myModal" class="modal">
+        <div class = "modal-content">
+            <span class="close">&times;</span>
+            <form id="proj_form">
+                <ul><label for="proj_name">Project Name:</label>
+                <input type="text" id="name" name="proj_name" required></ul>
+                <ul><label for="proj_type">Project Type:</label>
+                <input type="text" id="proj_type" name="proj_type" required></ul>
+                <ul><label for="proj-desc">Project Description:</label>
+                <input type="text" id="description" name="proj_desc" required></ul>
+                <ul><label for="proj_link">Project Link:</label>
+                <input type="text" id="proj_link" name="proj_link" required></ul>
+                <ul><label for="photo_url">Photo url:</label>
+                <input type="file" id="photo_url" name="photo_url" accept="image/*" required></ul>
+                <ul><button type="submit">Add Project</button></ul>
+        </div>
+    </div>
+    <div id="responseMessage"></div>
+    <script src="../static/javascript/add_proj.js"></script>
+
+    {% for project in projects %}
+    <figure>
+        <div class="container">
+            <figcaption class="project-desc">{{project.name}}</figcaption>
+            <figcaption class="project-desc">{{project.proj_type}}</figcaption>
+        </div>
+        <img src="{{ project.photo_url }}" alt="{{project.name}}" class="project-image">
+        <div class="project-desc">
+            <p>Project description:{{project.description}}</p>
+        </div>
+        <div>
+            <p>Code accessed here:{{project.link}}</p>
+        </div>
+        <div class="comments">
+            <p>Comments:</p>
+        </div>
+    </figure>
+    {% endfor%}
+</div>
+
+{% endblock%}

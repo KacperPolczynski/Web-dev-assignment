@@ -1,0 +1,46 @@
+
+/*style for photo*/
+.main-page-image{
+    width: 17em;
+    height: 10%;
+}
+/* Grid container */
+.container {
+    max-width: 900px;
+    margin:0 auto;
+    padding: 20px;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+/* Main page text */
+.main-page-text {
+    flex: 2;
+    margin-right: 20px;
+}
+
+/* Main page image */
+.main-page-image {
+    flex: 1;
+}
+
+/* Current project section */
+.current-project {
+    margin-top: 30px
+}
+.current-project p {
+    color: #555
+}
+/*Section for project image and names*/
+.current-project{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.project-image {
+    width: 5em;
+    height: 5em;
+}
