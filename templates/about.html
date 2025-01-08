@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block extra_CSS %}
+<link rel ="stylesheet" href="{{url_for('static', filename='CSS_styles/about.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class ="education">
+        <div class="education-info">
+            <h2>Education</h2>
+            <p>MSC in Computing</p>
+            <p>Cardiff Univserity</p>
+            <p>2024-Present</p>
+            <p>Key Modules:</p>
+            <p>Fundamentals of Programming, Data Structures and Algorithms, Cloud Computing, Software engineering</p>
+        </div>
+        <div class="education-info">
+            <p>BA Business and Management (Project Management)</p>
+            <p>Bournemouth University</p>
+            <p>2021-2024</p>
+            <p>2:2</p>
+            <p>Key Modules:</p>
+            <p>Project Management, Business Analysis, Supply Chain Management, Business Strategy</p>
+        </div>
+    </div>
+    <div class ="work-experience">
+        <h2>Work/Project Experience</h2>
+        <div class="work-experience-info">
+            <p><strong>Event co-ordinator</strong></p>
+            <p>Depot Company – Cardiff | Present</p>
+            <li>Helped plan and execute multiple successful events </li>
+            <li>Ensure venues are prepared according to client’s specifications</li>
+            <li>Ensure all staff are aware of their responsibilities during event and keep to schedule</li>
+        </div>
+        <div class="work-experience-info">
+            <p><strong>Research project (Use of AI in agile software development projects)</strong></p>
+            <p>Bournemouth University | 2023</p>
+            <li>Carried out Qualitative research with industry professionals with varying degree of seniority</li>
+            <li>Carried out data analysis from respondents and visualised data using power bi </li>
+            <li>Presented findings to academic staff and industry professionals</li>
+        </div>
+    </div>
+    <div class ="skills">
+        <h2>Skills</h2>
+        <div class="skills-info">
+            <p><strong>Programming Languages:</strong> Python, JavaScript, flask, HTML, CSS, Node.js</p>
+            <p><strong>Tools:</strong> Visual Studio, Jupyter Notebook, Power BI</p>
+            <p><strong>Soft Skills:</strong> Teamwork, Communication, Problem Solving, Time Management</p>
+        </div>
+        <h2>CV available to download here:</h2>
+        <a href="{{url_for('static', filename='CV.pdf')}}" download>Download CV</a>
+</div>
+{% endblock %}

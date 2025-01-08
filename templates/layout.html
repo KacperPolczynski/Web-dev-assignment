@@ -7,6 +7,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../static/CSS_styles/layout.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
         {% block extra_CSS %}
         {% endblock %}
         <script src="https://kit.fontawesome.com/f79cc66706.js" crossorigin="anonymous"></script>
@@ -16,9 +19,13 @@
         <nav class="navbar">
             <ul class="navbar_items">
                 <li class="home"><a href="{{url_for('frontpage') }}" class="home"><i class="fa-solid fa-house"></i></a></li>
-                <li><a href="?">About</a></li>
+                <li><a href="{{url_for('about') }}">About</a></li>
                 <li><a href="{{url_for('projects') }}">Projects</a></li>
+                {% if current_user.is_authenticated%}
+                <li><a href="{{url_for('logout') }}">logout</a></li>
+                {%else%}
                 <li><a href="{{url_for('login') }}">login</a></li>
+                {%endif%}
             </ul>
         </nav>
 

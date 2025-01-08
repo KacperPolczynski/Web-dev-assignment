@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block extra_CSS %}
+<link rel="stylesheet" type="text/css" href="../static/CSS_styles/register.css">
+{% endblock %}
+{% block content %}
+<div class="login-container">
+        <div class="login-header">
+            <h1>Register</h1>
+        </div>
+        <div>
+            <form action="/register" method='POST' class="register-body">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">register</button>
+            </form>
+
+        <script src="../static/javascript/register.js"></script>
+        </div>
+        </div>
+    </form>
+{% endblock %}
+ 

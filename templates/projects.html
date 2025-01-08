@@ -4,9 +4,33 @@
 {% endblock %}
 {% block content %}
 <div class="main-body">
+    {% with messages = get_flashed_messages(category_filter=["error"])%}
+        {% if messages %}
+            <div id="error">
+                {% for message in messages %}
+                    <h5>{{message}}</h5>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    {% with messages = get_flashed_messages(category_filter=["success"])%}
+        {% if messages %}
+            <div class="success">
+                {% for message in messages %}
+                    <h5>{{message}}</h5>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    
+
+    {% if current_user.username == 'admin' %}
     <div class="add-btn">
         <button id="add-proj-btn">Add project</button>
     </div>
+    {% endif %}
     <!-- Pop Up to Add Projects-->
     <div id ="myModal" class="modal">
         <div class = "modal-content">
@@ -23,26 +47,51 @@
                 <ul><label for="photo_url">Photo url:</label>
                 <input type="file" id="photo_url" name="photo_url" accept="image/*" required></ul>
                 <ul><button type="submit">Add Project</button></ul>
+            </form>
         </div>
     </div>
-    <div id="responseMessage"></div>
+    <div id="project-container"></div>
     <script src="../static/javascript/add_proj.js"></script>
-
     {% for project in projects %}
     <figure>
-        <div class="container">
-            <figcaption class="project-desc">{{project.name}}</figcaption>
-            <figcaption class="project-desc">{{project.proj_type}}</figcaption>
+        <div class="each-proj-container">
+            <figcaption class="project-desc"><strong>{{project.name}}</figcaption>
+            <figcaption class="project-desc">{{project.proj_type}}</strong></figcaption>
         </div>
         <img src="{{ project.photo_url }}" alt="{{project.name}}" class="project-image">
+        {% if current_user.username == 'admin' %}
+        <form action="/delete_project" method="POST" class="delete-form" onsubmit="return confrim('Are you sure you want to delete this project?');">
+            <input type="hidden" name="project_id" value="{{project.id}}">
+            <button type="submit" class="delete-proj-btn">Delete Project</button>
+        </form>
+        {% endif %}
         <div class="project-desc">
-            <p>Project description:{{project.description}}</p>
+            <h6>Project description:</h6>
+            <p class="description">{{project.description}}</p>
         </div>
         <div>
-            <p>Code accessed here:{{project.link}}</p>
+            <h6>Code accessed here:</h6>
+            <p class="description"><a href={{project.link}}>{{project.link}}</a></p>
         </div>
-        <div class="comments">
-            <p>Comments:</p>
+        <div id="comments-header">
+            <h6>Comments:</h6>
+        </div>
+        <form action="/comment" method="POST" class="comments-section">
+            <input type="hidden" name="project_id" value="{{project.id}}">
+            <div class="comment-box">
+                <textarea name="comment" placeholder="Add a comment..."></textarea>
+                <button type="submit" >Submit</button>
+            </div>
+        </form>
+        <div class="user-comments">
+        {% if comments.get(project.id) %} 
+            {% for comment in comments[project.id] %}
+            <div class ="each-comment">
+                <h7>{{comment.username}}</h7>
+                <p>{{comment.text}}<p>
+            </div>
+            {% endfor%}
+        {% endif%}
         </div>
     </figure>
     {% endfor%}

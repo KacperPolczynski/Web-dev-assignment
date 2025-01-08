@@ -1,0 +1,14 @@
+.container {
+    max-width: 900px;
+    margin:0 auto;
+    padding: 20px;
+}
+.education-info {
+    margin-bottom: 3em;
+}
+.work-experience-info {
+    margin-bottom: 3em;
+}   
+.skills-info {
+    margin-bottom: 3em;
+}   

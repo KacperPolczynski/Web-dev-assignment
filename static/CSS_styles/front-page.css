@@ -1,8 +1,11 @@
 
 /*style for photo*/
 .main-page-image{
-    width: 17em;
-    height: 10%;
+    width: 25em;
+    height: 40em;
+}
+.main-img-cont{
+    height: 20%;
 }
 /* Grid container */
 .container {
@@ -19,7 +22,7 @@
 /* Main page text */
 .main-page-text {
     flex: 2;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 /* Main page image */
@@ -39,8 +42,18 @@
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    gap: 0;
+    flex:1;
+
+
 }
 .project-image {
-    width: 5em;
-    height: 5em;
+    width: 15em;
+    height: 15em;
+    border-radius: 15px;
+    box-shadow: #555 0px 0px 10px;
+}
+p {
+    margin-bottom: 3em;
+    margin-top: 3em;
 }

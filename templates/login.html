@@ -4,16 +4,38 @@
 {% endblock %}
 {% block content %}
 <div class="login-container">
-    <form action="{{url_for('login')}}">
         <div class="login-header">
             <h1>Login</h1>
         </div>
-        <div class="login-body">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+        {% if messages %}
+            <div class="success">
+            {% for message in messages %}
+                    <h5>{{ message }}</h5>
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+    {% if messages %}
+        <div class="error">
+            {% for message in messages %}
+                <h5>{{ message }}</h5>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+        <div>
+            <form action="/login" method="POST" class="login-body">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <a href="{{url_for('register')}}">Don't have an account? Register here</a>
+                <button type="submit">Login</button>
+            </form>
+        </div>
         </div>
     </form>
 {% endblock %}

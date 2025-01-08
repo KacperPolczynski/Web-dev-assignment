@@ -9,22 +9,28 @@
 <div class="container">
     <div class="about-section">
         <div class="main-page-text">
-            <p>Hi, I'm Kacper Polczynski</p>
+            <h1>Hi, I'm Kacper Polczynski</h1>
+            <p>I’m a driven Project Management graduate and Computing Master’s student with a passion for leveraging technology to solve complex problems and drive impactful change.</p>
+            <p>With a strong foundation in business IT and hands-on experience in project coordination, data analysis, and cyber resilience, I’m excited to showcase my journey and contributions to dynamic industries like healthcare, technology, and financial services.</p>                
+            <p>Explore my portfolio to discover:</p>
+            <li>My latest projects and collaborations</li>
+            <li>Skills and Experience</li>
+            <li>Professional and academic background</li>
+            <p>Lets connect and explore how we can create something exceptional together!</p>
         </div>
-        <div>
-            <img src="../static/images/my_photo.jpg" alt="Kacper Polczynski" class="main-page-image">
+        <div class ="main-img-cont">
+            <img src="../static/images/my_photo.png" alt="Kacper Polczynski" class="main-page-image">
         </div>
     </div>  
     <h2>Current Projects</h2>
-        <div class="current-project">
-{% for project in projects %}
-        <figure>
-            <div class="container">
-                <img src="{{ project.photo_url }}" alt="{{project.name}}" class="project-image">
-                <figcaption class="project-name">{{project.name}}</figcaption>  
-            </div>
-        </figure>
-{% endfor %}
+</div>
+<div class="current-project">
+        {% for project in projects [:4]%}
+                <figure>
+                    <img src="{{ project.photo_url }}" alt="{{project.name}}" class="project-image">
+                    <figcaption class="project-name">{{project.name}}</figcaption> 
+                </figure>
+        {% endfor %}
 </div>
 
 {% endblock %}

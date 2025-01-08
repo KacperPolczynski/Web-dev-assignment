@@ -20,7 +20,7 @@
     
  /* submit form */
 const form = document.getElementById("proj_form");
-const responseMessage = document.getElementById("responseMessage");
+const project_container = document.getElementById("project-container");
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -72,12 +72,50 @@ form.addEventListener('submit', async (e) => {
             console.error("Failed to add project");
             return;
         }
+
+
+
+        const new_proj = await add_proj.json();
+        const new_proj_html = `
+        <figure>
+            <div class="each-proj-container">
+                <figcaption class="project-desc"><strong>${new_proj.name}</strong></figcaption>
+                <figcaption class="project-desc">${new_proj.proj_type}</figcaption>
+            </div>
+            <img src="${new_proj.photo_url}" alt="${new_proj.name}" class="project-image"></img>
+            <div class="project-desc">
+                <h6>Project description:</h6>
+                <p class="description">${new_proj.description}</p>
+            </div>
+            <div>
+                <h6>Code accessed here:</h6>
+                <p class="description"><a href=${project.link}>${project.link}</a></p>
+            </div>
+            <div id="comments-header">
+                <h6>Comments:</h6>
+            </div>
+            <form action="/comment" method="POST" class="comments-section">
+                <input type="hidden" name="project_id" value="${new_proj.id}">
+                <div class="comment-box">
+                    <textarea name="comment" placeholder="Add a comment..." required></textarea>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <div class="user-comments">
+            </div>
+        </figure>
+        `;
+        project_container.insertAdjacentHTML('beforeend', new_proj_html);
+
         form.reset();
         modal.style.display = "none";
+
     } catch (error) {
         console.error("Error:", error);
     }
 });
+
+
     
 
         

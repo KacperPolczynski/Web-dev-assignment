@@ -1,21 +1,28 @@
-.container {
+.body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.each-proj-container {
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    margin-bottom: 0.5em;
+    margin-top: 5em;
 }
 .main-body {
     width: 60%;
     margin: auto;
-    border: 1px solid red;
 }
 
 .project-image {
     width: 100%;
+    border-radius: 15px;
+    box-shadow: #555 0px 0px 10px;
 }
 
-.project-desc {
+.description {
     margin-bottom: 0.5em;
     font-size: 1em;
+    background-color: #E8E8E7;
+    background: none;
 }
 
 /* Add project button */
@@ -26,11 +33,11 @@
     margin-bottom: 3%;
 }
 figure p {
-    font-size: 9px;
-    text-align: center;
+    font-size: 0.5em;
+    text-align: left;
     vertical-align: middle;
 }
-/*pop up modal*/
+/*pop up modal for adding project*/
 .modal {
     display: none;
     position: fixed;
@@ -42,13 +49,13 @@ figure p {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
+    
 }
 .modal-content {
-    background-color: #fefefe;
+    
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction:row;
 }
@@ -65,3 +72,46 @@ figure p {
     text-decoration: none;
     cursor: pointer;
   }
+/*comment section CSS*/
+#comments-header{
+    display: flex;
+    justify-content: left;
+}
+.comment-box{
+    display: flex;
+    flex-direction: row;
+}
+.user-comments{
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border-radius: 4px;
+    box-shadow: #c02828 4px;
+    
+    
+}
+.each-comment{
+    margin-left: 0.1em;
+    margin-top: 0.4em;
+    border-bottom: #888 solid 1px;
+}
+
+
+form {
+    background-color: #E8E8E7;
+}
+
+.comments-section{
+    box-shadow: #555 0px 0px 6px;
+}
+.comments-section textarea{
+    width: 95%;
+    height: 80px;
+    background-color: #E8E8E7;
+    border-radius: 2px;
+}
+.delete-form{
+    display: flex;
+    justify-content: flex-end;
+}
+
