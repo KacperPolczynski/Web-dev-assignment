@@ -1,5 +1,6 @@
 
 from werkzeug.utils import secure_filename
+
 from flask import Flask, request, render_template, request, jsonify, redirect, url_for, flash
 import os
 from flask_sqlalchemy import SQLAlchemy
@@ -224,4 +225,6 @@ def logout():
 
         
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port debug=True)
